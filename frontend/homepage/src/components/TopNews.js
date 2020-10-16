@@ -1,5 +1,5 @@
 import React from 'react'
-import ArticleDetail from './ArticleItems.js'
+import ArticleDetail from './ArticleDetail.js'
 
 class TopNews extends React.Component {
   render() {

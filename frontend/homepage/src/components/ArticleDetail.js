@@ -3,7 +3,7 @@ import React from 'react';
 class ArticleDetail extends React.Component {
   render() {
     return(
-      <div className="card-body">
+      <div className="card-body article-detial">
         <img src={this.props.article.image_url} alt="#"/>
         <h3>{this.props.article.title}</h3>
         <span>{this.props.article.categories}</span>
@@ -15,15 +15,4 @@ class ArticleDetail extends React.Component {
   }
 }
 
-class ArticleTitle extends React.Component {
-  render() {
-    return (
-      <div className="card-body">
-        <h3>{this.props.article.title}</h3>
-      </div>
-    )
-  }
-}
-
 export default ArticleDetail
-export { ArticleTitle }

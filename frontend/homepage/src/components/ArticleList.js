@@ -1,12 +1,14 @@
 import React from 'react'
-import ArticleTitle from './ArticleItems.js'
+import ArticleTitle from './ArticleTitle.js'
+import ArticleDetail from './ArticleDetail.js'
 
 class ArticleList extends React.Component {
   render() {
     return (
-      this.props.article.filter(article => article.isTopNews === false).map((article, id) => (
+      this.props.articles.filter(article => article.isTopNews === false).map((article, id) => (
         <div key={id}>
           <ArticleTitle article={article}/>
+          <ArticleDetail article={article}/>
         </div>
       ))
     )

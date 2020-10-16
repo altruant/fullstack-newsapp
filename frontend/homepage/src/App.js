@@ -1,6 +1,7 @@
 import React from 'react';
 // import NavHeader from './components/NavHeader.js';
 import TopNews from './components/TopNews.js'
+import ArticleList from './components/ArticleList.js'
 import './App.css';
 
 class App extends React.Component{
@@ -23,8 +24,12 @@ class App extends React.Component{
       <div className="container">
         <div className="top-articles">
           <h2>Top Articles</h2>
+          <TopNews articles={this.state.articles}/>
         </div>
-        <TopNews articles={this.state.articles}/>
+        <div className="last-week">
+          <ArticleList articles={this.state.articles} />
+        </div>
+
       </div>
     );
   }
