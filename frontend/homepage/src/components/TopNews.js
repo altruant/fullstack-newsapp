@@ -1,10 +1,10 @@
 import React from 'react'
 import ArticleItem from './ArticleItem'
 
-class ArticleList extends React.Component {
+class TopNews extends React.Component {
   render() {
     return(
-      this.props.articles.map((article, id) => (
+      this.props.articles.filter(article => article.isTopNews == true).map((article, id) => (
         <div key={id}>
           <ArticleItem article={article}/>
         </div>
@@ -14,4 +14,4 @@ class ArticleList extends React.Component {
 }
 
 
-export default ArticleList
+export default TopNews
