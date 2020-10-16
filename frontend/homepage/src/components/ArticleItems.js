@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ArticleItem extends React.Component {
+class ArticleDetail extends React.Component {
   render() {
     return(
       <div className="card-body">
@@ -15,4 +15,15 @@ class ArticleItem extends React.Component {
   }
 }
 
-export default ArticleItem
+class ArticleTitle extends React.Component {
+  render() {
+    return (
+      <div className="card-body">
+        <h3>{this.props.article.title}</h3>
+      </div>
+    )
+  }
+}
+
+export default ArticleDetail
+export { ArticleTitle }
