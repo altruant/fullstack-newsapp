@@ -7,6 +7,12 @@ verify_ssl = true
 
 [packages]
 djangorestframework = "*"
+django-rest-auth = "*"
+django-allauth = "*"
+whitenoise = "*"
+gunicorn = "~=20.0.4"
+dj-database-url = "~=0.5.0"
+psycopg2-binary = "~=2.8.6"
 
 [requires]
 python_version = "3.8"
