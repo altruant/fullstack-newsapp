@@ -2,8 +2,17 @@ import React from 'react';
 import e2020 from '../assets/e2020.png'
 import entertainment from '../assets/entertainment.png'
 import arrowDown from '../assets/arrow-down.svg'
-class ArticleDetail extends React.Component {
 
+
+
+class ArticleDetail extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isHover: false,
+    }
+  }
 
   render() {
     let icon = ''
@@ -20,8 +29,10 @@ class ArticleDetail extends React.Component {
     return(
       <div className="article-detail">
         <div className="article-header">
-          <img className='detail-img' src={this.props.article.image_url} style={{maxWidth: '100%'}} alt="#"/>
-          <h3>{this.props.article.title}</h3>
+          <div className='article-header-top'>
+            <img className='detail-img' src={this.props.article.image_url} style={{maxWidth: '100%'}} alt="#"/>
+            <h3>{this.props.article.title}</h3>
+          </div>
           <div className="article-header-bottom">
             <div className="icon-categories">
               <img src={icon} alt="#" className="icon"/>
@@ -31,11 +42,13 @@ class ArticleDetail extends React.Component {
               <img src={arrowDown} alt='#' className='arrow-down'/>
             </div>
           </div>
-          <span>Posted on {this.props.article.created}</span>
-          <span>Modified at {this.props.article.modified}</span>
+
         </div>
         <div className='article-body'>
+          <span>Posted on {this.props.article.created}</span>
+          <span>Modified at {this.props.article.modified}</span>
           <p>{this.props.article.body}</p>
+
         </div>
       </div>
     )
