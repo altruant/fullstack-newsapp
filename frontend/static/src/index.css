@@ -11,6 +11,52 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+form {
+  padding: 5vh 15vh;
+}
+
+label {
+  font-weight: 500
+}
+.header {
+  padding: 5vh 15vh 0vh;
+}
+.submit-button {
+  padding: 0 15vh 5vh;
+}
+.dropdowns {
+  display: inline-flex;
+}
+.category {
+  width: 20vw;
+  margin-right: 3vh
+}
+.stage {
+  width: 20vw;
+}
+.navbar {
+  width: 100vw;
+  background: #20242A;
+  display: inline-block;
+}
+
+.top-news {
+  padding-left: 5vw;
+}
+.not-top-news {
+  padding-left: 1vw;
+  padding-right: 5vw;
+}
+
+h2.top {
+  margin-left: 5vw;
+}
+
+h2.this-week {
+  margin-left: 1vw;
+  padding-right: 5vw;
+}
+
 
 
 .custom-modal {

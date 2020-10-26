@@ -1,7 +1,9 @@
 import React from 'react';
-import e2020 from '../assets/e2020.png'
-import entertainment from '../assets/entertainment.png'
-import arrowDown from '../assets/arrow-down.svg'
+import e2020 from '../../assets/e2020.png'
+import world from '../../assets/world.png'
+import entertainment from '../../assets/entertainment.png'
+import us_news from '../../assets/us-news.png'
+import arrowDown from '../../assets/arrow-down.svg'
 
 
 
@@ -10,7 +12,7 @@ class ArticleDetail extends React.Component {
     super(props);
 
     this.state = {
-      isHover = false
+      isHover: false,
     }
   }
 
@@ -22,6 +24,12 @@ class ArticleDetail extends React.Component {
         break;
       case 'Entertainment':
         icon = entertainment
+        break;
+      case 'US News':
+        icon = us_news;
+        break;
+      case 'World News':
+        icon = world;
         break;
       default:
         icon = ''
