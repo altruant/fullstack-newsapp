@@ -35,18 +35,11 @@ class ArticleForm extends React.Component {
     Cookies.set('Authorization', `Token ${data.key}`)
   }
   render() {
-    let loginOutButton
-    if(localStorage.getItem('login')) {
-      loginOutButton = <button onClick={this.props.logOut}>Logout</button>
-    } else {
-      loginOutButton = <button>Login</button>
-    }
+
     return(
       <React.Fragment>
         <div className="navbar">
-          <div className="auth-links">
-            {loginOutButton}
-          </div>
+            <button onClick={this.props.logOut}>Logout</button>
         </div>
         <div className="header">
           <h2>Post Article</h2>

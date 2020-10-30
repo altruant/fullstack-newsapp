@@ -14,10 +14,14 @@ class App extends React.Component{
       articles: [],
       cat: null,
       isLoggedIn: false,
-      isChanging: false,
+      loginForm: false,
+      registerForm: false,
     }
     this.articleFilter = this.articleFilter.bind(this)
     this.logOut = this.logOut.bind(this)
+    this.logIn = this.logIn.bind(this)
+    this.loginForm = this.loginForm.bind(this)
+    
   }
 
   articleFilter(e) {
@@ -27,6 +31,27 @@ class App extends React.Component{
     } else {
       this.setState( {cat: e.target.dataset.filter} )
     }
+  }
+
+  async logIn(e, login) {
+    e.preventDefault();
+    const response = await fetch('/api/v1/rest-auth/login/', {
+      method: 'POST',
+      headers: {
+        'X-CSRFToken': Cookies.get('csrftoken'),
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(login)
+    });
+
+    const data = await response.json();
+    Cookies.set('Authorization', `Token ${data.key}`)
+    localStorage.setItem('login', data.key)
+    this.setState({isLoggedIn: true, loginForm: false, registerForm: false})
+  }
+
+  loginForm() {
+    this.setState({loginForm: true})
   }
 
   async logOut() {
@@ -50,22 +75,19 @@ class App extends React.Component{
       .then(response => response.json())
       .then(data => this.setState({ articles: data }))
       .catch(error => console.log('Error', error))
-    if(localStorage.getItem('login')) {
-      this.setState( {isLoggedIn: true} )
     }
-  }
   render() {
-      if(localStorage.getItem('login')) {
+      if(Cookies.get('Authorization')) {
         return(
           <React.Fragment>
             <ArticleForm logOut={this.logOut}/>
           </React.Fragment>)
-      } else  {
+      } else {
         return(
           <React.Fragment>
             <Base articles={this.state.articles} cat={this.state.cat} articleFilter={this.articleFilter}/>
-            <LoginForm />
-            <RegisterForm />
+            <LoginForm logIn={this.logIn}/>
+            <RegisterForm logIn={this.logIn}/>
           </React.Fragment>)
       }
   }
