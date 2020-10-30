@@ -1,5 +1,6 @@
 import React from 'react';
 import Base from './components/BaseView/index.js'
+import MyArticles from './components/MyArticles.js'
 import ArticleForm from './components/Forms/ArticleForm.js';
 import LoginForm from './components/Forms/LoginForm.js'
 import RegisterForm from './components/Forms/RegisterForm.js'
@@ -21,8 +22,9 @@ class App extends React.Component{
     this.logOut = this.logOut.bind(this)
     this.logIn = this.logIn.bind(this)
     this.loginForm = this.loginForm.bind(this)
-    
+
   }
+
 
   articleFilter(e) {
     // console.log(e.target.dataset.filter)
@@ -71,17 +73,20 @@ class App extends React.Component{
   }
 
   componentDidMount() {
-    fetch('/api/v1/')
-      .then(response => response.json())
-      .then(data => this.setState({ articles: data }))
-      .catch(error => console.log('Error', error))
-    }
+      fetch('/api/v1/')
+        .then(response => response.json())
+        .then(data => this.setState({ articles: data }))
+        .catch(error => console.log('Error', error))
+
+  }
   render() {
       if(Cookies.get('Authorization')) {
         return(
           <React.Fragment>
             <ArticleForm logOut={this.logOut}/>
+            <MyArticles />
           </React.Fragment>)
+
       } else {
         return(
           <React.Fragment>
