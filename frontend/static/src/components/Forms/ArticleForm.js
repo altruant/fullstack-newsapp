@@ -77,10 +77,8 @@ class ArticleForm extends React.Component {
                 </select>
             </div>
           </div>
+          <button className='btn btn-primary' type='submit'>Submit</button>
         </form>
-        <div className="submit-button">
-        <button className='btn btn-primary' type='submit'>Submit</button>
-        </div>
       </React.Fragment>
     )
   }
